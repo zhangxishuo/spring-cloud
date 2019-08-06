@@ -1,0 +1,63 @@
+spring:
+  profiles:
+    active: eureka1
+
+---
+
+# 应用程序名称
+spring:
+  application:
+    name: eureka
+  profiles: eureka1
+
+# 端口号
+server:
+  port: 8001
+
+eureka:
+  instance:
+    hostname: eureka1.yunzhi.club
+    prefer-ip-address: false
+  client:
+    service-url:
+      defaultZone: http://eureka2.yunzhi.club:8002/eureka/, http://eureka3.yunzhi.club:8003/eureka/
+
+---
+
+# 应用程序名称
+spring:
+  application:
+    name: eureka
+  profiles: eureka2
+
+# 端口号
+server:
+  port: 8002
+
+eureka:
+  instance:
+    hostname: eureka2.yunzhi.club
+    prefer-ip-address: false
+  client:
+    service-url:
+      defaultZone: http://eureka1.yunzhi.club:8001/eureka/, http://eureka3.yunzhi.club:8003/eureka/
+
+---
+
+# 应用程序名称
+spring:
+  application:
+    name: eureka
+  profiles: eureka3
+
+# 端口号
+server:
+  port: 8003
+
+eureka:
+  instance:
+    hostname: eureka3.yunzhi.club
+    prefer-ip-address: false
+  client:
+    service-url:
+      defaultZone: http://eureka1.yunzhi.club:8001/eureka/, http://eureka2.yunzhi.club:8002/eureka/
