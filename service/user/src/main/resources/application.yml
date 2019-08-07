@@ -1,0 +1,33 @@
+server:
+  port: 8300
+  # 服务前缀
+  servlet:
+    context-path: /user
+
+spring:
+  application:
+    name: user
+  # 禁用数据定义语言
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/cloud?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
+    tomcat:
+      max-active: 4
+      min-idle: 2
+      initial-size: 2
+
+# eureka 客户端配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1.yunzhi.club:8001/eureka/
+
+# 启用Feign Hystrix
+feign:
+  hystrix:
+    enabled: true
