@@ -1,7 +1,8 @@
-package club.yunzhi.cloud.service;
+package club.yunzhi.cloud.service.impl;
 
 import club.yunzhi.cloud.CourseInfo;
 import club.yunzhi.cloud.repository.CourseRepository;
+import club.yunzhi.cloud.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

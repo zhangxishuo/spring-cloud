@@ -2,8 +2,7 @@ package club.yunzhi.cloud.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 
@@ -12,10 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 自定义过滤器，打印请求响应时间
  */
+@Slf4j
 @Component
 public class AccessLogFilter extends ZuulFilter {
-
-    private static final Logger logger = LoggerFactory.getLogger(AccessLogFilter.class);
 
     @Override
     public String filterType() {
@@ -43,7 +41,7 @@ public class AccessLogFilter extends ZuulFilter {
 
         long duration = System.currentTimeMillis() - startTime;
 
-        logger.info("uri: {}, duration: {}ms", uri, duration / 100);
+        log.info("uri: {}, duration: {}ms", uri, duration / 100);
 
         return null;
     }
