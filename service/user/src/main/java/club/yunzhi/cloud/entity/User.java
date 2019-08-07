@@ -1,5 +1,6 @@
 package club.yunzhi.cloud.entity;
 
+import club.yunzhi.cloud.UserInfo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
@@ -28,4 +29,20 @@ public class User {
 
     @LastModifiedDate
     private Calendar updateTime;
+
+    public User(String username, String email) {
+        this.username = username;
+        this.email = email;
+    }
+
+    /**
+     * 建造者模式构建课程信息
+     */
+    public UserInfo buildUserInfo() {
+        return UserInfo.builder()
+                .id(id)
+                .username(username)
+                .email(email)
+                .build();
+    }
 }

@@ -35,7 +35,7 @@ public class Course {
     private Calendar updateTime;
 
     /**
-     * 建造者模式构建课程信息
+     * 建造者模式构建用户信息
      */
     public CourseInfo buildCourseInfo() {
         return CourseInfo.builder()

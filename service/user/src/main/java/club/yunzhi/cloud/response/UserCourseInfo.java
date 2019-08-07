@@ -1,4 +1,4 @@
-package club.yunzhi.cloud.vo;
+package club.yunzhi.cloud.response;
 
 import club.yunzhi.cloud.CourseInfo;
 import club.yunzhi.cloud.UserInfo;
