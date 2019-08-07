@@ -1,5 +1,6 @@
 package club.yunzhi.cloud.entity;
 
+import club.yunzhi.cloud.CourseInfo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
@@ -32,4 +33,17 @@ public class Course {
 
     @LastModifiedDate
     private Calendar updateTime;
+
+    /**
+     * 建造者模式构建课程信息
+     */
+    public CourseInfo buildCourseInfo() {
+        return CourseInfo.builder()
+                .id(id)
+                .name(name)
+                .type(type == 0 ? "免费课" : "实战课")
+                .icon(icon)
+                .intro(intro)
+                .build();
+    }
 }
