@@ -1,8 +1,5 @@
 server:
   port: 8300
-  # 服务前缀
-  servlet:
-    context-path: /user
 
 spring:
   application:

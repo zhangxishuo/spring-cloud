@@ -1,9 +1,11 @@
 package club.yunzhi.cloud.client;
 
 import club.yunzhi.cloud.CourseInfo;
+import feign.RequestLine;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -14,9 +16,9 @@ import java.util.List;
         fallback = CourseClientHystrix.class)
 public interface CourseClient {
 
-    @GetMapping(value = "/course/{id}")
+    @GetMapping(value = "{id}")
     CourseInfo getCourseInfo(@PathVariable Long id);
 
-    @GetMapping(value = "/course/batch/{ids}")
-    List<CourseInfo> getCourseInfo(@PathVariable List<Long> ids);
+    @GetMapping(value = "batch")
+    List<CourseInfo> getCourseInfo(@RequestParam List<Long> ids);
 }
